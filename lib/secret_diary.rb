@@ -14,13 +14,19 @@ class SecretDiary
   end
 
   def add_entry(user_entry)
-    raise "The diary is locked" if @locked == true
+    locked_error
     @diary_entries << user_entry
   end
 
   def get_entries
-    raise "The diary is locked" if @locked == true
+    locked_error
     @diary_entries.each { |entry| puts entry }
+  end
+
+  private
+
+  def locked_error
+    raise "The diary is locked" if @locked == true
   end
 
 end
