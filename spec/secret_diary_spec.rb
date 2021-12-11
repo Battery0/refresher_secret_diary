@@ -10,6 +10,10 @@ describe SecretDiary do
     expect(subject.unlock).to eq(false)
   end
 
+  it '#add_entry allows the user to add a diary entry' do
+    expect(subject.add_entry("I am a diary entry")).to eq(["I am a diary entry"])
+  end
+
 end
 
 
