@@ -19,6 +19,7 @@ class SecretDiary
   end
 
   def get_entries
+    raise "The diary is locked" if @locked == true
     @diary_entries.each { |entry| puts entry }
   end
 
