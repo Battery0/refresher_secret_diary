@@ -14,9 +14,15 @@ describe SecretDiary do
     expect(subject.add_entry("I am a diary entry")).to eq(["I am a diary entry"])
   end
 
+  it '#get_entries allows the user to see all diary entries' do
+    subject.add_entry("entry 1")
+    subject.add_entry("entry 2")
+    subject.add_entry("entry 3")
+
+   expect { subject.get_entries }.to output("entry 1\nentry 2\nentry 3\n").to_stdout
+  end
+
 end
-
-
 
 
 # SecretDiary

@@ -17,4 +17,8 @@ class SecretDiary
     @diary_entries << user_entry
   end
 
+  def get_entries
+    @diary_entries.each { |entry| puts entry }
+  end
+
 end
