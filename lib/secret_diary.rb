@@ -14,6 +14,7 @@ class SecretDiary
   end
 
   def add_entry(user_entry)
+    raise "The diary is locked" if @locked == true
     @diary_entries << user_entry
   end
 
