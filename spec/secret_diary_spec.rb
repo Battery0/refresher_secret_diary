@@ -6,6 +6,9 @@ describe SecretDiary do
     expect(subject.lock).to eq(true)
   end
 
+  it '#unlock unlocks the diary' do
+    expect(subject.unlock).to eq(false)
+  end
 
 end
 
