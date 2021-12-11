@@ -2,9 +2,10 @@ require 'secret_diary'
 
 describe SecretDiary do
   
-  it '#lock? locks the diary' do
-    expect(subject.lock?).to eq(true)
+  it '#lock locks the diary' do
+    expect(subject.lock).to eq(true)
   end
+
 
 end
 

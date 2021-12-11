@@ -4,7 +4,7 @@ class SecretDiary
     @locked = true
   end
 
-  def lock?
+  def lock
     @locked = true
   end
 
