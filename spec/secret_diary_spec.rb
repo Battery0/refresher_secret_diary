@@ -2,24 +2,32 @@ require 'secret_diary'
 
 describe SecretDiary do
   
-  it '#lock locks the diary' do
-    expect(subject.lock).to eq(true)
+  describe '#lock' do
+    it 'locks the diary' do
+      expect(subject.lock).to eq(true)
+    end
   end
 
-  it '#unlock unlocks the diary' do
-    expect(subject.unlock).to eq(false)
+  describe '#unlock' do
+    it 'unlocks the diary' do
+      expect(subject.unlock).to eq(false)
+    end
   end
 
-  it '#add_entry allows the user to add a diary entry' do
-    expect(subject.add_entry("I am a diary entry")).to eq(["I am a diary entry"])
+  describe '#add_entry' do
+    it 'allows the user to add a diary entry' do
+      expect(subject.add_entry("I am a diary entry")).to eq(["I am a diary entry"])
+    end
   end
 
-  it '#get_entries allows the user to see all diary entries' do
-    subject.add_entry("entry 1")
-    subject.add_entry("entry 2")
-    subject.add_entry("entry 3")
+  describe '#get_entries' do
+    it 'allows the user to see all diary entries' do
+      subject.add_entry("entry 1")
+      subject.add_entry("entry 2")
+      subject.add_entry("entry 3")
 
-   expect { subject.get_entries }.to output("entry 1\nentry 2\nentry 3\n").to_stdout
+      expect { subject.get_entries }.to output("entry 1\nentry 2\nentry 3\n").to_stdout
+    end
   end
 
 end
