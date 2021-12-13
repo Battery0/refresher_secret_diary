@@ -14,13 +14,13 @@ class SecretDiary
   end
 
   def add_entry(user_entry)
-    locked_error
+    raise "The diary is locked" if @locked == true
     @diary_entries << user_entry
   end
 
-  def get_entries
+  def get_entries(entries = SecretDiaryPrinter.new)
     locked_error
-    @diary_entries.each { |entry| puts entry }
+    entries.print_all(@diary_entries)
   end
 
   private

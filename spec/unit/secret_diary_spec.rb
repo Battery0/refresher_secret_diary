@@ -26,38 +26,25 @@ describe SecretDiary do
     end
   end
 
-  describe '#get_entries' do
-    it 'allows the user to see all diary entries' do
-      subject.unlock
-      subject.add_entry("entry 1")
-      subject.add_entry("entry 2")
-      subject.add_entry("entry 3")
+  # describe '#get_entries' do
+  #   it 'allows the user to see all diary entries' do
+  #     subject.unlock
+  #     subject.add_entry("entry 1")
+  #     subject.add_entry("entry 2")
+  #     subject.add_entry("entry 3")
 
-      expect { subject.get_entries }.to output("entry 1\nentry 2\nentry 3\n").to_stdout
-    end
+  #     expect { subject.get_entries }.to output("entry 1\nentry 2\nentry 3\n").to_stdout
+  #   end
 
-    it 'throws an error if trying to get all entries if the diary is locked' do
-      subject.unlock
-      subject.add_entry("entry 1")
-      subject.add_entry("entry 2")
-      subject.add_entry("entry 3")
-      subject.lock
+  #   it 'throws an error if trying to get all entries if the diary is locked' do
+  #     subject.unlock
+  #     subject.add_entry("entry 1")
+  #     subject.add_entry("entry 2")
+  #     subject.add_entry("entry 3")
+  #     subject.lock
 
-      expect { subject.get_entries }.to raise_error("The diary is locked")
-    end
-  end
+  #     expect { subject.get_entries }.to raise_error("The diary is locked")
+  #   end
+  # end
 
 end
-
-
-# SecretDiary
-#   - lock
-#   - unlock
-#   - add_entry
-#   - get_entries
-
-# Initially the `SecretDiary` class is locked, meaning `add_entry` and `get_entries` should throw an error.
-
-# When the user calls `unlock`, `add_entry` and `get_entries` should work as desired.
-
-# When the user locks the diary, by calling `lock`, `add_entry` and `get_entries` should, again, throw an error.
