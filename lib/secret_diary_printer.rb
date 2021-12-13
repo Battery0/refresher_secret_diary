@@ -1,0 +1,3 @@
+class SecretDiaryPrinter
+
+end
