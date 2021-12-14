@@ -1,3 +1,5 @@
+require_relative './secret_diary_printer'
+
 class SecretDiary
 
   def initialize
