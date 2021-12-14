@@ -1,7 +1,9 @@
 require 'secret_diary'
 
 describe SecretDiary do
-  # let(:secret_diary_printer_dbl) { double(:secret_diary_printer_dbl, { print_all: "entry 1\nentry 2\nentry 3\n"  } )}
+  
+  let(:secret_diary_printer_dbl) { double(:secret_diary_printer_dbl) }
+
   describe '#lock' do
     it 'locks the diary' do
       expect(subject.lock).to eq(true)
@@ -27,7 +29,7 @@ describe SecretDiary do
 
   describe '#get_entries' do
     it 'allows the user to see all diary entries' do
-      secret_diary_printer_dbl = double(:secret_diary_printer_dbl)
+      # secret_diary_printer_dbl = double(:secret_diary_printer_dbl)
       subject.unlock
       subject.add_entry("entry 1")
       subject.add_entry("entry 2")
@@ -36,15 +38,15 @@ describe SecretDiary do
       expect(subject.get_entries(secret_diary_printer_dbl)).to eq("entry 1\nentry 2\nentry 3\n")
     end
 
-  #   it 'throws an error if trying to get all entries if the diary is locked' do
-  #     subject.unlock
-  #     subject.add_entry("entry 1")
-  #     subject.add_entry("entry 2")
-  #     subject.add_entry("entry 3")
-  #     subject.lock
+    it 'throws an error if trying to get all entries if the diary is locked' do
+      subject.unlock
+      subject.add_entry("entry 1")
+      subject.add_entry("entry 2")
+      subject.add_entry("entry 3")
+      subject.lock
 
-  #     expect { subject.get_entries }.to raise_error("The diary is locked")
-  #   end
+      expect { subject.get_entries(secret_diary_printer_dbl) }.to raise_error("The diary is locked")
+    end
   end
 
 end
